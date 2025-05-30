@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Post a Job</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/post-job.css">
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+    <script src="/js/post-job.js"></script>
+  </head>
+  <body>
+
+    {{> navbar}}
+
+    <section class="hero">
+      <h1>Post a New Job</h1>
+    </section>
+
+    <section class="categories">
+      <form action="/post-job" method="POST" class="post-job-form">
+        <input type="text" name="title" placeholder="Job Title" required><br><br>
+        <input type="text" name="company" placeholder="Company Name" required><br><br>
+        <input type="text" name="location" placeholder="Location" required><br><br>
+        <input type="number" name="salary" placeholder="Salary (₹)" required><br><br>
+        <textarea name="description" placeholder="Job Description" required></textarea><br><br>
+        <input type="text" name="technologyStack" placeholder="Technology Stack (comma-separated)"><br><br>
+        <button type="submit">Post Job</button>
+      </form>
+    </section>
+
+  </body>
+</html>

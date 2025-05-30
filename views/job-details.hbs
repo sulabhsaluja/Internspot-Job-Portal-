@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Job Details - {{title}}</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/job-details.css" />
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+    
+  </head>
+  <body>
+
+    {{> navbar}}
+
+    <section class="hero">
+      <h1>{{title}}</h1>
+      <p><strong>Company:</strong> {{company}}</p>
+      <p><strong>Location:</strong> {{location}}</p>
+      <p><strong>Salary:</strong> ₹{{salary}}</p>
+      <p><strong>Technologies:</strong> {{technologyStack}}</p>
+      <p><strong>Description:</strong> {{description}}</p>
+      <a href="/apply/{{jobId}}" class="apply-btn">Apply for Job</a>
+    </section>
+
+  </body>
+</html>

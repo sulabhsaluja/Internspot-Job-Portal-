@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Available Job Listings</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/job-list.css" />
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+  </head>
+  <body>
+    {{> navbar}}
+
+    <h1 style="text-align: center;">Available Job Listings</h1>
+
+    
+
+    <!-- Search and Filter Form -->
+    <div class="search-filter-form">
+      <form method="GET" action="/jobs">
+        <input type="text" name="search" placeholder="Search job title" value="{{search}}" />
+        <input type="text" name="location" placeholder="Location" value="{{location}}" />
+        <input type="text" name="company" placeholder="Company" value="{{company}}" />
+        <input type="text" name="tech" placeholder="Tech Stack (e.g., Java)" value="{{tech}}" />
+
+        <select name="sort">
+          <option value>Sort by</option>
+          <option value="salary_asc" {{#if (eq sort "salary_asc")}}selected{{/if}}>Salary: Low to High</option>
+          <option value="salary_desc" {{#if (eq sort "salary_desc")}}selected{{/if}}>Salary: High to Low</option>
+        </select>
+
+        <button type="submit">Search</button>
+      </form>
+    </div>
+
+    <!-- ⚠️ No Jobs Found -->
+    {{#unless jobs.length}}
+      <p class="no-results">No jobs found matching your criteria.</p>
+    {{/unless}}
+
+    <!-- ✅ Job List -->
+    <div class="job-list">
+      {{#each jobs}}
+        <div class="job-card">
+          <h3>{{title}}</h3>
+          <p><strong>Company:</strong> {{company}}</p>
+          <p><strong>Location:</strong> {{location}}</p>
+          <p><strong>Description:</strong> {{description}}</p>
+
+          <p><strong>Tech Stack:</strong>
+            {{#each technologyStack}}
+              <a href="/jobs?tech={{this}}" class="tech-tag">{{this}}</a>
+            {{/each}}
+          </p>
+
+          <div class="button-container">
+            <a href="/apply/{{_id}}" class="apply-btn">Apply Now</a>
+            <a href="/job/{{_id}}" class="view-details-btn">View Details</a>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  </body>
+</html>

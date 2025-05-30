@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Applied Jobs</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/css/applied-jobs.css" />
+    <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
+  </head>
+  <body>
+
+    {{> navbar}} 
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("navLinks").classList.toggle("active");
+      }
+    </script>
+
+    <h1>My Applied Jobs</h1>
+
+    {{#if appliedJobs.length}}
+    <ul>
+      {{#each appliedJobs}}
+      <li>
+        <h3>{{title}} at {{company}} ({{location}})</h3>
+        <p><strong>Cover Letter:</strong> {{{coverLetter}}}</p>
+        <p><strong>Status:</strong> {{status}}</p>
+      </li>
+      <hr />
+      {{/each}}
+    </ul>
+    {{else}}
+    <p>You haven't applied for any jobs yet.</p>
+    {{/if}}
+
+  </body>
+</html>
+
