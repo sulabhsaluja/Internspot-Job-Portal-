@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Manage Applications</title>
+    <title>Manage Applications | InternSpot</title>
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/css/manage-application.css">
     <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
@@ -31,46 +31,49 @@
     </script>
 
     {{#if user}}
-      {{#if (eq user.role "employer")}}
-        <section class="applications-list">
-          <h1>Manage Applications</h1>
+    {{#if (eq user.role "employer")}}
+    <section class="applications-list">
+      <h1>Manage Applications</h1>
 
-          {{#each jobs}}
-            <div class="job">
-              <h2>{{this.title}} - {{this.company}}</h2>
-              <p>{{this.location}}</p>
-              <ul>
-                {{#each this.applications}}
-                  <li>
-                    <p><strong>Applicant:</strong> {{this.user.username}}</p>
-                    <p><strong>Email:</strong> {{this.user.email}}</p>
-                    <p><strong>Cover Letter:</strong> {{this.coverLetter}}</p>
-                    <p><strong>Status:</strong> {{this.status}}</p>
+      {{#each jobs}}
+      <div class="job">
+        <h2>{{this.title}} - {{this.company}}</h2>
+        <p>{{this.location}}</p>
+        <ul>
+          {{#each this.applications}}
+          <li>
+            <p><strong>Applicant:</strong> {{this.user.username}}</p>
+            <p><strong>Email:</strong> {{this.user.email}}</p>
+            <p><strong>Cover Letter:</strong> {{this.coverLetter}}</p>
+            <p><strong>Status:</strong> {{this.status}}</p>
 
-                    <form onsubmit="return updateApplicationStatus(this)">
-                      <input type="hidden" name="jobId" value="{{../_id}}">
-                      <input type="hidden" name="applicantId" value="{{this.user._id}}">
+            <form onsubmit="return updateApplicationStatus(this)">
+              <input type="hidden" name="jobId" value="{{../_id}}">
+              <input type="hidden" name="applicantId" value="{{this.user._id}}">
 
-                      <select name="status">
-                        <option value="pending" {{#if (eq this.status "pending")}}selected{{/if}}>Pending</option>
-                        <option value="accepted" {{#if (eq this.status "accepted")}}selected{{/if}}>Accepted</option>
-                        <option value="rejected" {{#if (eq this.status "rejected")}}selected{{/if}}>Rejected</option>
-                      </select>
-                      <button type="submit">Update Status</button>
-                    </form>
-                  </li>
-                {{/each}}
-              </ul>
-            </div>
-          {{else}}
-            <p>No applications found for this job.</p>
+              <select name="status">
+                <option value="pending" {{#if (eq this.status
+                  "pending")}}selected{{/if}}>Pending</option>
+                <option value="accepted" {{#if (eq this.status
+                  "accepted")}}selected{{/if}}>Accepted</option>
+                <option value="rejected" {{#if (eq this.status
+                  "rejected")}}selected{{/if}}>Rejected</option>
+              </select>
+              <button type="submit">Update Status</button>
+            </form>
+          </li>
           {{/each}}
-        </section>
+        </ul>
+      </div>
       {{else}}
-        <p>You do not have permission to view this page.</p>
-      {{/if}}
+      <p>No applications found for this job.</p>
+      {{/each}}
+    </section>
     {{else}}
-      <p>You must be logged in to view this page.</p>
+    <p>You do not have permission to view this page.</p>
+    {{/if}}
+    {{else}}
+    <p>You must be logged in to view this page.</p>
     {{/if}}
 
     <script>

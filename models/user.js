@@ -1,4 +1,4 @@
-const mongoose = require('mongoose'); 
+const mongoose = require("mongoose");
 const userSchema = new mongoose.Schema({
   username: String,
   phone: Number,
@@ -11,10 +11,16 @@ const userSchema = new mongoose.Schema({
   state: String,
   country: String,
   role: String,
-  appliedJobs: [{
-    jobId: { type: mongoose.Schema.Types.ObjectId, ref: 'Job' },
-    status: { type: String, enum: ['pending', 'accepted', 'rejected'], default: 'pending' }
-  }]
+  appliedJobs: [
+    {
+      jobId: { type: mongoose.Schema.Types.ObjectId, ref: "Job" },
+      status: {
+        type: String,
+        enum: ["pending", "accepted", "rejected"],
+        default: "pending",
+      },
+    },
+  ],
 });
 
-module.exports = mongoose.model('User',userSchema)
+module.exports = mongoose.model("User", userSchema);

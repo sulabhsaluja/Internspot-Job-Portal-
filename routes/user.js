@@ -1,42 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Job = require("../models/job");
-
-// router.get("/applied-jobs", async (req, res) => {
-//   if (!req.session.user) return res.redirect("/login");
-
-//   const userId = req.session.user.id;
-
-//   const jobs = await Job.find({ "applications.user": userId }).populate(
-//     "applications.user"
-//   );
-
-//   const appliedJobs = [];
-//   jobs.forEach((job) => {
-//     job.applications.forEach((application) => {
-//       if (String(application.user._id) === String(userId)) {
-//         appliedJobs.push({
-//           title: job.title,
-//           company: job.company,
-//           location: job.location,
-//           applicantName: application.user?.username || "N/A",
-//           email: application.user?.email || "N/A",
-//           coverLetter: application.coverLetter || "No cover letter provided",
-//           status: application.status,
-//         });
-//       }
-//     });
-//   });
-
-//   res.render("applied-jobs", { appliedJobs });
-// });
-
-
-
-
-
-
-
 router.get("/applied-jobs", async (req, res) => {
   if (!req.session.user) {
     return res.redirect("/login"); // Block if not logged in
@@ -64,6 +28,5 @@ router.get("/applied-jobs", async (req, res) => {
     res.status(500).send("Server Error");
   }
 });
-
 
 module.exports = router;

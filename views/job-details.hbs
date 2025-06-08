@@ -13,8 +13,7 @@
 
     {{> navbar}}
 
-
-     <script>
+    <script>
       function toggleMenu() {
         const navLinks = document.querySelector("#navLinks");
         navLinks.classList.toggle("active");
@@ -37,15 +36,14 @@
       <p><strong>Company:</strong> {{company}}</p>
       <p><strong>Location:</strong> {{location}}</p>
       <p><strong>Salary:</strong> ₹{{salary}}</p>
-      
-       <div class="tech-stack-container">
+
+      <div class="tech-stack-container">
         <p><strong>Technologies:</strong></p>
         <div class="tech-tags-wrapper">
           <span class="tech-tag">{{technologyStack}}</span>
         </div>
       </div>
-      
-      
+
       <p><strong>Description:</strong> {{description}}</p>
       <a href="/apply/{{jobId}}" class="apply-btn">Apply for Job</a>
     </main>

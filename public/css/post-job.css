@@ -6,7 +6,7 @@
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   background: linear-gradient(180deg, #f0f4ff 0%, #ffffff 60%);
   color: #222;
 }
@@ -131,8 +131,6 @@ header {
 }
 
 @media (max-width: 768px) {
-  
-
   .hero {
     padding: 60px 20px 50px;
     font-size: 1.2rem;
@@ -160,8 +158,6 @@ header {
 }
 
 @media (max-width: 480px) {
-  
-
   .hero h1 {
     font-size: 1.6rem;
   }

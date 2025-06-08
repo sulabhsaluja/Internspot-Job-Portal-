@@ -3,9 +3,7 @@ const session = require("express-session");
 const mongoose = require("mongoose");
 const path = require("path");
 const hbs = require("hbs");
-
 const app = express();
-
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
