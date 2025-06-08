@@ -51,7 +51,6 @@ app.use("/", require("./routes/employer"));
 app.use("/", require("./routes/user"));
 
 // Server start
-// app.listen(3000, () => console.log("Server running on http://localhost:3000"));
 
 const port = process.env.PORT || 2000; // Use Render's PORT or fallback to 2000 for local
 app.listen(port, () => {

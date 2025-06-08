@@ -2,25 +2,53 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Job Details - {{title}}</title>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/job-details.css" />
     <link rel="shortcut icon" href="/images/logo.png" type="image/x-icon">
-    
+    <meta name="theme-color" content="#2c3e50">
   </head>
   <body>
 
     {{> navbar}}
 
-    <section class="hero">
+
+     <script>
+      function toggleMenu() {
+        const navLinks = document.querySelector("#navLinks");
+        navLinks.classList.toggle("active");
+        const hamburger = document.querySelector(".hamburger");
+        const isActive = navLinks.classList.contains("active");
+        hamburger.setAttribute("aria-expanded", isActive);
+      }
+
+      document.querySelectorAll("#navLinks a").forEach((link) => {
+        link.addEventListener("click", () => {
+          const navLinks = document.querySelector("#navLinks");
+          navLinks.classList.remove("active");
+          document.querySelector(".hamburger").setAttribute("aria-expanded", "false");
+        });
+      });
+    </script>
+
+    <main class="hero">
       <h1>{{title}}</h1>
       <p><strong>Company:</strong> {{company}}</p>
       <p><strong>Location:</strong> {{location}}</p>
       <p><strong>Salary:</strong> ₹{{salary}}</p>
-      <p><strong>Technologies:</strong> {{technologyStack}}</p>
+      
+       <div class="tech-stack-container">
+        <p><strong>Technologies:</strong></p>
+        <div class="tech-tags-wrapper">
+          <span class="tech-tag">{{technologyStack}}</span>
+        </div>
+      </div>
+      
+      
       <p><strong>Description:</strong> {{description}}</p>
       <a href="/apply/{{jobId}}" class="apply-btn">Apply for Job</a>
-    </section>
+    </main>
 
   </body>
 </html>

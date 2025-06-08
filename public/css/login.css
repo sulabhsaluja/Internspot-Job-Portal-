@@ -2,7 +2,6 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-
   color: #ffffff;
 }
 
@@ -11,10 +10,10 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 400px;
-  padding: 40px;
-  margin: 20px auto;
-  transform: translate(-50%, -55%);
+  width: 90%;
+  max-width: 400px;
+  padding: 30px;
+  transform: translate(-50%, -50%);
   background: transparent;
   backdrop-filter: blur(10px);
   box-sizing: border-box;
@@ -23,13 +22,10 @@ body {
 }
 
 .login-box p:first-child {
-  margin: 0 0 30px;
-  padding: 0;
-  color: #fff;
+  margin: 0 0 20px;
   text-align: center;
   font-size: 1.5rem;
   font-weight: bold;
-  letter-spacing: 1px;
 }
 
 /* User input fields */
@@ -77,6 +73,7 @@ body {
   padding: 2px;
   position: relative;
   transition: background 0.3s, transform 0.3s;
+  width: 100%;
 }
 
 .button:hover {
@@ -89,66 +86,18 @@ body {
   color: #fff;
   position: relative;
   background: radial-gradient(circle 80px at 80% -50%, #777777, #0f1111);
-  transition: background 0.3s;
+  text-align: center;
 }
 
 .button:hover .inner {
   background: radial-gradient(circle 80px at 80% -50%, #333333, #0f0f0f);
 }
 
-/* Header styles */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-  text-align: center;
-}
-
-.navbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background-color: #1c1c1c;
-  padding: 10px 20px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.nav-links a {
-  margin: 0 10px;
-  text-decoration: none;
-  color: #ffffff;
-  font-size: 14px;
-  transition: color 0.3s;
-}
-
-.nav-links a:hover {
-  color: #8a8a8a;
-}
-
-.actions {
-  display: flex;
-  align-items: center;
-}
-
-.sign-up {
-  padding: 8px 15px;
-  background-color: #6a4ffc;
-  color: #ffffff;
-  border-radius: 4px;
-  font-weight: bold;
-  transition: background-color 0.3s;
-}
-
-.sign-up:hover {
-  background-color: #593fcc;
-}
-
 /* Footer text */
 .login-box p:last-child {
   color: #aaa;
   font-size: 14px;
+  text-align: center;
 }
 
 .login-box a.a2 {
@@ -168,4 +117,26 @@ header {
   top: 0;
   z-index: -1;
   bottom: 0;
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+  .login-box {
+    padding: 20px;
+    width: 95%;
+  }
+
+  .inner {
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+
+  .user-box input,
+  .user-box label {
+    font-size: 14px;
+  }
+
+  .login-box p:first-child {
+    font-size: 1.3rem;
+  }
 }

@@ -1,59 +1,72 @@
 /* Reset default spacing */
-body,
-h1,
-h3,
-p,
-ul,
-li {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
-  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, #f0f8ff, #ffffff);
+  padding: 30px 15px 60px;
   color: #333;
 }
 
 /* Page heading */
 h1 {
-  font-size: 28px;
+  font-size: 2rem;
   text-align: center;
-  margin-bottom: 30px;
-  color: #03045e;
+  margin-top: 50px;
+  margin-bottom: 40px;
+  color: #003566;
 }
 
 /* Applied jobs list */
 ul {
   list-style: none;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0;
 }
 
 li {
-  background-color: white;
-  padding: 20px 30px;
-  border-radius: 10px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  background-color: #ffffff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  margin-bottom: 30px;
+  transition: transform 0.2s ease;
+}
+
+li:hover {
+  transform: translateY(-4px);
 }
 
 li h3 {
-  font-size: 20px;
-  color: #0066cc;
-  margin-bottom: 10px;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #0077b6;
+  margin-bottom: 12px;
 }
 
 li p {
-  font-size: 16px;
-  margin-bottom: 8px;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+/* Status badge styling */
+li p strong {
+  color: #222;
+}
+
+li p:last-child {
+  font-weight: 500;
+  color: #444;
 }
 
 li hr {
-  margin-top: 20px;
+  margin-top: 25px;
   border: none;
   border-top: 1px solid #ddd;
 }
@@ -61,6 +74,26 @@ li hr {
 /* Empty state */
 p {
   text-align: center;
-  font-size: 18px;
+  font-size: 1.1rem;
   color: #666;
+  margin-top: 20px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  li {
+    padding: 20px;
+  }
+
+  li h3 {
+    font-size: 1.1rem;
+  }
+
+  li p {
+    font-size: 0.95rem;
+  }
+
+  h1 {
+    font-size: 1.7rem;
+  }
 }
